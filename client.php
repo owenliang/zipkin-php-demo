@@ -109,7 +109,7 @@ function rpcToB($traceId, $parentSpanId) {
             "timestamp" => $b_srTimestamp,
             "duration" => 0,
             "debug" => true,
-            "shared" => false,
+            "shared" => true,
             "localEndpoint" => [
                 "serviceName" => "b.service.com",
                 "ipv4" => "192.168.1.200",
