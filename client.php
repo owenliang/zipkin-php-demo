@@ -106,8 +106,10 @@ function rpcToB($traceId, $parentSpanId) {
             'parentId' => $parentSpanId,
             "name" => "/method_of_b",
             "kind" => "SERVER",
+            "timestamp" => $b_srTimestamp,
+            "duration" => 0,
             "debug" => true,
-            "shared" => true,
+            "shared" => false,
             "localEndpoint" => [
                 "serviceName" => "b.service.com",
                 "ipv4" => "192.168.1.200",
@@ -127,6 +129,7 @@ function rpcToB($traceId, $parentSpanId) {
             "timestamp" => $b_ssTimestamp, // 应答a.service.com的时间
             "value" => "ss"
         ];
+        $span3['duration'] = $b_ssTimestamp - $b_srTimestamp;
         postSpans([$span3]);
     }
 
